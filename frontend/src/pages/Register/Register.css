@@ -1,0 +1,23 @@
+.register-container {
+  max-width: 400px;
+  margin: 35% auto;
+  padding: 24px;
+  background: var(--color-background);
+}
+
+.register-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-container h1 {
+  text-align: center;
+}
+
+.register-container p {
+  margin-top: var(--spacing-sm);
+}
+.error {
+  color: var(--color-danger);
+  margin-bottom: 12px;
+}

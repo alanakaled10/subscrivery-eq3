@@ -1,0 +1,25 @@
+.login-container {
+  max-width: 400px;
+  margin: 35% auto;
+  padding: 0 3%;
+  background: var(--color-background);
+}
+
+.login-container h1 {
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container p {
+  margin-top: var(--spacing-sm);
+}
+
+.error {
+  color: var(--color-danger);
+  margin-bottom: 12px;
+}
