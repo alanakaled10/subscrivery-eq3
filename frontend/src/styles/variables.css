@@ -1,0 +1,41 @@
+:root {
+    /* CORES PRINCIPAIS */
+    --color-primary: #5a2899;
+    --color-primary-hover: #9767f9;
+
+    --color-secondary: #B5F200;
+    --color-tertiary: #ffd401;
+    --color-danger: #ff7865;
+
+    /* CORES NEUTRAS */
+    --color-background: #F1EFEE;
+    --color-text-primary: #383639;
+
+    /* FONTES */
+
+    --font-family-base: "Work Sans", sans-serif;
+    --font-family-title: "Stickler-Pro", system-ui, sans-serif;
+
+    --font-size-xs: 0.75rem;    
+    --font-size-sm: 0.875rem;   
+    --font-size-base: 1rem; 
+    --font-size-lg: 1.125rem;   
+    --font-size-xl: 1.25rem;    
+    --font-size-2xl: 1.8rem;    
+    --font-size-3xl: 2rem;  
+
+    /* ESPACAMENTOS */
+    --spacing-2xs: 0.25rem;
+    --spacing-xs: 0.5rem;  
+    --spacing-sm: 0.75rem; 
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;  
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;   
+
+}
+
+@font-face {
+    font-family: "Stickler-Pro";
+    src: url("../assets/fonts/Stickler-Pro.woff2") format("woff2");
+}
