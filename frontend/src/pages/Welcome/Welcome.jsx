@@ -1,3 +1,4 @@
+import Button from '../../components/Button/Button'
 import { Link, useNavigate } from "react-router-dom";
 import "./Welcome.css";
 import googleIcon from "../../assets/icons/google-icon.png";
@@ -13,19 +14,19 @@ export default function Welcome() {
       <div className="welcome-content">
         <h1 className="welcome-title">
           Bem-vindo <br />
-          <span>Subscrivery</span>
+          Subscrivery
         </h1>
 
         <p className="welcome-text">
           <Link to="/Register">Cadastre-se</Link> gratuitamente ou faça login.
         </p>
 
-        <button
-          className="welcome-button"
+        <Button
+          className="welcome-button btn-primary"
           onClick={() => navigate("/login")}
         >
           Continuar com email ou celular
-        </button>
+        </Button>
 
         <div className="welcome-divider">ou</div>
 

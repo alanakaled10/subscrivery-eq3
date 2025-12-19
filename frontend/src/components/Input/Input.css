@@ -1,19 +1,14 @@
-.input-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 12px;
-}
-
-.login-container input {
+input {
   width: 100%;
-  padding: var(--spacing-md);
-  border-radius: var(--radius-lg);
+  margin: var(--spacing-2) 0;
+  padding: var(--spacing-4) var(--spacing-2);
+  color: var(--color-black);
   border: none;
-  background-color: #e5e5e5;
-  margin-bottom: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg-input);
 }
 
-.input-group input:focus {
-  border-color: var(--color-primary);
+input:focus {
+  border: var(--border-width-thin) solid var(--border-color-focus);
   outline: none;
 }

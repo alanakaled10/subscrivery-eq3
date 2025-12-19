@@ -1,39 +1,44 @@
-.login-container {
-  min-height: 100vh;
-  padding: var(--spacing-lg);
-  display: flex;
-  flex-direction: column;
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-4);
 }
 
-.login-header {
-  font-family: var(--font-family-title);
-  font-size: var(--font-size-2xl);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: var(--spacing-xl);
+header span {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-2xl);
+    color: var(--color-gray);
+}
+
+header button {
+    background: var(--color-bg-body);
+    border: none;
+    color: var(--color-primary);
+}
+
+.login-container {
+    display: flex;
+    height: 100vh;
+    padding: var(--spacing-4);
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .login-container h1 {
-  font-family: var(--font-family-text);
-  font-size: var(--font-size-3xl);
-  margin-bottom: var(--spacing-md);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-2);
 }
 
-.primary-btn {
-  margin-top: auto;
-  padding: var(--spacing-md);
-  background-color: var(--color-primary);
-  color: #fff;
-  border-radius: var(--radius-lg);
-  border: none;
-  font-size: var(--font-size-base);
+.error {
+    font-size: var(--font-size-sm);
+    color: var(--color-error);
+    display: block;
 }
 
 .forgot-password {
-  background: none;
-  border: none;
-  color: var(--color-primary);
-  margin-bottom: var(--spacing-lg);
-  text-align: left;
+    color: var(--color-primary);
+    margin-top: var(--spacing-1);
 }

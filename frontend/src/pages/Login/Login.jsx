@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import Button from "../../components/Button/Button"
 import Input from "../../components/Input/Input"
 import "./Login.css";
 
@@ -58,51 +59,57 @@ export default function Login() {
             </header>
 
             {step === 1 && (
-                <>
-                    <h1>Qual é seu e-mail?</h1>
+                <div className="login-container">
+                    <div className="container">
 
-                    <Input
-                        type="email"
-                        placeholder="E-mail"
-                        value={email}
-                        onChange={(e) => {
-                            setEmail(e.target.value);
-                            setError("");
-                        }}
-                    />
+                        <h1>Qual é seu e-mail?</h1>
 
-                    {error && <span className="error">{error}</span>}
+                        <Input
+                            type="email"
+                            placeholder="E-mail"
+                            value={email}
+                            onChange={(e) => {
+                                setEmail(e.target.value);
+                                setError("");
+                            }}
+                        />
 
-                    <button className="primary-btn" onClick={handleNext}>
+                        {error && <span className="error">{error}</span>}
+                    </div>
+
+                    <Button className="btn-primary" onClick={handleNext}>
                         Continuar
-                    </button>
-                </>
+                    </Button>
+                </div>
             )}
 
             {step === 2 && (
-                <>
-                    <h1>Sua senha</h1>
+                <div className="login-container">
+                    <div className="container">
 
-                    <input
-                        type="password"
-                        placeholder="Senha"
-                        value={password}
-                        onChange={(e) => {
-                            setPassword(e.target.value);
-                            setError("");
-                        }}
-                    />
+                        <h1>Sua senha</h1>
 
-                    {error && <span className="error">{error}</span>}
+                        <Input
+                            type="password"
+                            placeholder="Senha"
+                            value={password}
+                            onChange={(e) => {
+                                setPassword(e.target.value);
+                                setError("");
+                            }}
+                        />
 
-                    <a href="#" className="forgot-password">
-                        Esqueci minha senha
-                    </a>
+                        {error && <span className="error">{error}</span>}
 
-                    <button className="primary-btn" onClick={handleLogin}>
+                        <a href="#" className="forgot-password">
+                            Esqueci minha senha
+                        </a>
+                    </div>
+
+                    <Button className="btn-primary" onClick={handleLogin}>
                         Continuar
-                    </button>
-                </>
+                    </Button>
+                </div>
             )}
         </div>
     );

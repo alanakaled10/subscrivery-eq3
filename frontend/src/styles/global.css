@@ -1,20 +1,21 @@
-@import "./variables.css";
+@import url(variables.css);
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: var(--color-text-primary);
 }
 
 body {
     font-family: var(--font-family-base);
-    color: var(--color-text-primary);
-    background-color: #fff;
-    font-size: var(--font-size-base);
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-family-title);
-    font-size: var(--font-size-3xl);
-    margin-bottom: var(--spacing-xl);
+    font-family: var(--font-family-heading);
+}
+
+h1 {
+    font-size: var(--font-size-title);
+    color: var(--color-text-heading);
 }

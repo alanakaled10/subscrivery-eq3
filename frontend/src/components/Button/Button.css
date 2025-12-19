@@ -1,10 +1,20 @@
 button {
-  padding: 10px;
-  border: none;
-  background-color: var(--color-primary);
-  font-weight: bold;
-  color: #fff;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.2s ease-in;
+    cursor: pointer;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: var(--spacing-4) var(--spacing-2);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    border: none;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    margin-top: var(--spacing-8);
+    border-radius: var(--radius-lg);
+    transition: background-color ease-in var(--transition-fast);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover);
 }

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Register.css";
 import Input from "../../components/Input/Input";
-import Button from "../../components/Button/Button"
+import Button from "../../components/Button/Button";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -84,118 +84,137 @@ export default function Register() {
           ←
         </button>
         <span>Cadastro</span>
+        <div></div>
       </header>
 
       {step === 1 && (
-        <>
-          <h1>Qual é seu e-mail?</h1>
+        <div className="register-container">
+          <div className="container">
 
-          <Input
-            type="email"
-            placeholder="E-mail"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-              setError("");
-            }}
-          />
+            <h1>Qual é seu e-mail?</h1>
 
-          {error && <span className="error">{error}</span>}
+            <Input
+              type="email"
+              placeholder="E-mail"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setError("");
+              }}
+            />
 
-          <Button className="primary-btn" onClick={handleNext}>
+            {error && <span className="error">{error}</span>}
+          </div>
+
+          <Button className="btn-primary" onClick={handleNext}>
             Continuar
           </Button>
-        </>
+        </div>
       )}
 
       {step === 2 && (
-        <>
-          <h1>Qual é seu celular?</h1>
+        <div className="register-container">
+          <div className="container">
 
-          <Input
-            type="tel"
-            placeholder="Celular"
-            value={phone}
-            onChange={(e) => {
-              const onlyNumbers = e.target.value.replace(/\D/g, "");
-              setPhone(onlyNumbers);
-              setError("");
-            }}
-          />
+            <h1>Qual é seu celular?</h1>
 
-          {error && <span className="error">{error}</span>}
+            <Input
+              type="tel"
+              placeholder="Celular"
+              value={phone}
+              onChange={(e) => {
+                const onlyNumbers = e.target.value.replace(/\D/g, "");
+                setPhone(onlyNumbers);
+                setError("");
+              }}
+            />
 
-          <Button className="primary-btn" onClick={handleNext}>
+            {error && <span className="error">{error}</span>}
+          </div>
+          <Button className="btn-primary" onClick={handleNext}>
             Continuar
           </Button>
-        </>
+        </div>
       )}
 
       {step === 3 && (
-        <>
-          <h1>Agora, escolha uma senha</h1>
-          <p className="subtitle">Mínimo de 8 caracteres</p>
+        <div className="register-container">
+          <div className="container">
 
-          <Input
-            type="password"
-            placeholder="Senha"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-              setError("");
-            }}
-          />
+            <h1>Agora, escolha uma senha</h1>
+            <p className="subtitle">Mínimo de 8 caracteres</p>
 
-          {error && <span className="error">{error}</span>}
+            <Input
+              type="password"
+              placeholder="Senha"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                setError("");
+              }}
+            />
 
-          <Button className="primary-btn" onClick={handleNext}>
+            {error && <span className="error">{error}</span>}
+          </div>
+
+          <Button className="btn-primary" onClick={handleNext}>
             Continuar
           </Button>
-        </>
+        </div>
       )}
 
       {step === 4 && (
-        <>
-          <h1>Detalhes da conta</h1>
+        <div className="register-container">
+          <div className="container">
 
-          <Input
-            type="text"
-            placeholder="Nome"
-            value={name}
-            onChange={(e) => {
-              setName(e.target.value);
-              setError("");
-            }}
-          />
+            <h1>Detalhes da conta</h1>
 
-          <Input
-            type="text"
-            placeholder="Sobrenome"
-            value={lastName}
-            onChange={(e) => {
-              setLastName(e.target.value);
-              setError("");
-            }}
-          />
-
-          <Input type="email" value={email} disabled />
-
-          <label className="terms">
             <Input
-              type="checkbox"
-              checked={acceptTerms}
-              onChange={(e) => setAcceptTerms(e.target.checked)}
+              type="text"
+              placeholder="Nome"
+              value={name}
+              onChange={(e) => {
+                setName(e.target.value);
+                setError("");
+              }}
             />
-            Concordo com os Termos & Condições e a Política de Privacidade
-          </label>
 
-          {error && <span className="error">{error}</span>}
+            <Input
+              type="text"
+              placeholder="Sobrenome"
+              value={lastName}
+              onChange={(e) => {
+                setLastName(e.target.value);
+                setError("");
+              }}
+            />
 
-          <Button className="primary-btn" onClick={handleRegister}>
+            <Input type="email" value={email} disabled />
+
+            <div class="terms-container">
+              <div className="container">
+                <Input
+                  type="checkbox"
+                  className="checkbox"
+                  checked={acceptTerms}
+                  onChange={(e) => setAcceptTerms(e.target.checked)}
+                />
+              </div>
+
+              <span class="text">
+                Concordo com os <a href="#" target="_blank">Termos & Condições</a> e a <a href="#" target="_blank">Política de Privacidade</a>
+              </span>
+            </div>
+
+            {error && <span className="error">{error}</span>}
+          </div>
+
+          <Button className="btn-primary" onClick={handleRegister}>
             Criar minha conta
           </Button>
-        </>
-      )}
-    </div>
+        </div>
+      )
+      }
+    </div >
   );
 }

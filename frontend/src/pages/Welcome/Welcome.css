@@ -1,68 +1,36 @@
 .welcome-container {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--spacing-lg);
-  background-color: var(--color-background);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--spacing-8);
 }
 
-.welcome-content {
-  width: 100%;
-  max-width: 360px;
-}
-
-.welcome-title {
-  font-size: 3.5rem;
-  color: var(--color-primary);
-  line-height: 3rem;
-}
-
-.welcome-text {
-  margin: var(--spacing-md) 0 var(--spacing-lg);
-  color: var(--color-text-secondary);
-}
-
-.welcome-text a {
-  color: var(--color-primary);
-  font-weight: semibold;
-}
-
-.welcome-button {
-  width: 100%;
-  padding: var(--spacing-md);
-  background-color: var(--color-primary);
-  color: #fff;
-  border-radius: 15px;
-  border: none;
-  font-size: var(--font-size-base);
+.welcome-text a:hover {
+    color: var(--color-primary);
 }
 
 .welcome-divider {
-  text-align: center;
-  margin: var(--spacing-lg) 0;
-  color: var(--color-text-secondary);
+    text-align: center;
+    margin: var(--spacing-6);
 }
 
 .welcome-social {
-  display: flex;
-  justify-content: center;
-  gap: var(--spacing-md);
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-2)
 }
 
 .social-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid var(--color-border);
-  background: #fff;
+    width: 2rem;
+    height: 2rem;
+    border: var(--border-width-thin) solid var(--border-color-default);
+    border-radius: var(--radius-full);
+    padding: var(--spacing-1);
+    background-color: var(--color-bg-body);
 }
 
-.social-btn:hover {
-  background-color: #fff;
-}
-
-.social-btn img {
-  width: 100%;
-  border-radius: 50%;
+.social-btn img{
+    width: 100%;
+    border-radius: var(--radius-full);
 }
