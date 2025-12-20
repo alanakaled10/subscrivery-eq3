@@ -1,0 +1,4 @@
+header {
+    background-color: var(--color-gray);
+    padding: 0 var(--spacing-3);
+}

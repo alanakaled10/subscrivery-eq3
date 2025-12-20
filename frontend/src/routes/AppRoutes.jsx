@@ -26,7 +26,7 @@ export function AppRoutes() {
                     element={
                         <PrivateRoute>
                             <Layout>
-                                <Plans />
+                                <Dashboard />
                             </Layout>
                         </PrivateRoute>
                     }

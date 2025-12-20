@@ -1,0 +1,7 @@
+.plans-body {
+    height: calc(100vh - 10vh);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--spacing-6);
+}
