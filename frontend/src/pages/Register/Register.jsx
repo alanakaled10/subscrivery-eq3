@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Register.css";
@@ -46,7 +47,7 @@ export default function Register() {
     setStep(step + 1);
   }
 
-  function handleRegister() {
+  async function handleRegister() {
     if (!name || !lastName) {
       setError("Preencha seu nome completo");
       return;
@@ -57,15 +58,25 @@ export default function Register() {
       return;
     }
 
-    console.log({
-      email,
-      phone,
-      password,
-      name,
-      lastName,
-    });
+    try {
+      const nome_completo = `${name} ${lastName}`;
 
-    navigate("/plans");
+      // Enviando apenas os campos que existem no seu formulário
+      const resposta = await axios.post('http://localhost:3000/usuarios', {
+        nome_completo: nome_completo,
+        email: email,
+        senha: password,
+        telefone: phone,
+        cpf: null // Como não tem campo de CPF ainda, enviamos como null (vazio aceitável)
+      });
+
+      alert(resposta.data.mensagem);
+      navigate("/plans");
+
+    } catch (err) {
+      // Agora o erro virá detalhado se algo falhar
+      setError(err.response?.data?.erro || "Erro ao conectar com o servidor");
+    }
   }
 
   function handleBack() {
