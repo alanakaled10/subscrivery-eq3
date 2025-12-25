@@ -1,0 +1,180 @@
+/* Container Principal - Fundo neutro para ressaltar as informações */
+.profile-container {
+  padding: 40px;
+  background-color: #f3f4f6;
+  min-height: calc(100vh - 65px); /* Ajuste para descontar o Header */
+  font-family: 'Inter', sans-serif;
+}
+
+.profile-layout {
+  display: flex;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Estilização dos Cards (Blocos de Informação) */
+.profile-card {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e5e7eb;
+}
+
+/* Coluna da Esquerda - Identidade Funcional */
+.identity-card {
+  flex: 1;
+  max-width: 350px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar-wrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.avatar-circle {
+  width: 160px;
+  height: 160px;
+  background-color: #004d40; /* Verde escuro institucional */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 45px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.avatar-circle:hover {
+  filter: brightness(1.2);
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  color: #1a1a1a;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.profile-badge {
+  background-color: #004d40; /* Badge Administrador Master */
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.profile-subtext {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+/* Coluna da Direita - Detalhes e Segurança */
+.profile-details {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.section-header h3 {
+  font-size: 1.25rem;
+  color: #111827;
+  font-weight: 700;
+}
+
+/* Campos de Entrada (Input) - Estilo Formal */
+.input-field {
+  margin-bottom: 18px;
+}
+
+.input-field label {
+  display: block;
+  font-size: 0.85rem;
+  color: #374151;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 12px;
+  background-color: #f9fafb;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  color: #4b5563;
+  font-size: 1rem;
+  outline: none;
+}
+
+/* Botões de Ação Institucionais */
+.btn-edit {
+  background-color: #004d40;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s;
+}
+
+.btn-edit:hover {
+  background-color: #00332b;
+}
+
+.btn-outline {
+  background: white;
+  border: 1px solid #d1d5db;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: #374151;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-outline:hover {
+  background-color: #f3f4f6;
+}
+
+
+.status-ativo {
+  border-left: 4px solid #00B894 !important;
+  font-weight: bold;
+}
+
+.status-inativo {
+  border-left: 4px solid #ef4444 !important;
+}
+
+
+
+@media (max-width: 768px) {
+  .profile-layout {
+    flex-direction: column;
+  }
+  
+  .identity-card {
+    max-width: 100%;
+  }
+}

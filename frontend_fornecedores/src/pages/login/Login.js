@@ -8,20 +8,23 @@ import logoImg from '../../assets/logo.png';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const [erro, setErro] = useState(''); 
+  const [erro, setErro] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setErro(''); 
+    setErro('');
 
     try {
-      
+
       const response = await api.post('/login', { email, senha });
 
+
       if (response.status === 200) {
-       
-        navigate('/home'); 
+
+        localStorage.setItem('usuarioLogado', JSON.stringify(response.data.usuario));
+        navigate('/dashboard');
+        
       }
     } catch (error) {
       if (error.response && error.response.status === 401) {
@@ -63,7 +66,7 @@ const Login = () => {
             required
           />
 
-          
+
           {erro && (
             <p style={{ color: '#ef4444', fontSize: '13px', marginBottom: '15px', fontWeight: 'bold', textAlign: 'center' }}>
               {erro}
@@ -74,7 +77,7 @@ const Login = () => {
         </form>
 
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
-          <a href="#" style={{ color: '#5A2D82', textDecoration: 'none', fontSize: '14px' }}>
+          <a href="#" style={{ color: '#013D3B', textDecoration: 'none', fontSize: '14px' }}>
             Esqueceu sua senha?
           </a>
         </div>
@@ -82,14 +85,14 @@ const Login = () => {
         <div style={{ textAlign: 'center', marginTop: '25px', borderTop: '1px solid #E5E7EB', paddingTop: '20px' }}>
           <p style={{ fontSize: '14px', color: '#4B5563' }}>
             Novo por aqui?{' '}
-            <Link to="/cadastro" style={{ color: '#5A2D82', fontWeight: 'bold', textDecoration: 'none' }}>
+            <Link to="/cadastro" style={{ color: '#00B894', fontWeight: 'bold', textDecoration: 'none' }}>
               Crie sua conta.
             </Link>
           </p>
         </div>
       </div>
 
-      <img src={iconeFundo} alt="Ilustração de caixas" className="box-illustration" />
+      
     </div>
   );
 };

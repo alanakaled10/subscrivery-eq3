@@ -2,22 +2,44 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../../services/api.js';
 import '../login/styles.css';
-import iconeFundo from '../../assets/iconi_fundo.png';
 import logoImg from '../../assets/logo.png';
 
 const Cadastro = () => {
-  const [nome, setNome] = useState('');
+  const [nomeFantasia, setNomeFantasia] = useState('');
+  const [razaoSocial, setRazaoSocial] = useState('');
+  const [cnpj, setCnpj] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const [erro, setErro] = useState('');
   const navigate = useNavigate();
 
+  // Função para aplicar a máscara de CNPJ (00.000.000/0000-00)
+  const handleCnpjChange = (e) => {
+    let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não é número
+    if (value.length > 14) value = value.slice(0, 14); // Limita a 14 dígitos
+
+    // Aplica a formatação progressiva
+    value = value.replace(/^(\d{2})(\d)/, '$1.$2');
+    value = value.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
+    value = value.replace(/\.(\d{3})(\d)/, '.$1/$2');
+    value = value.replace(/(\d{4})(\d)/, '$1-$2');
+
+    setCnpj(value);
+  };
 
   const handleCadastro = async (e) => {
     e.preventDefault();
 
     try {
-      const dados = { nome, email, senha };
+      // No banco, geralmente salvamos apenas os números (limpos)
+      const cnpjLimpo = cnpj.replace(/\D/g, '');
+
+      const dados = { 
+        nome_fantasia: nomeFantasia, 
+        razao_social: razaoSocial, 
+        cnpj: cnpjLimpo, // Enviamos o dado puro para o banco
+        email, 
+        senha 
+      };
 
       const response = await api.post('/usuarios', dados);
 
@@ -27,7 +49,8 @@ const Cadastro = () => {
       }
     } catch (error) {
       console.error('Erro ao cadastrar:', error);
-      alert('Erro ao conectar com o servidor. Verifique se o backend está ativo.');
+      const msgErro = error.response?.data?.error || 'Erro ao conectar com o servidor.';
+      alert(msgErro);
     }
   };
 
@@ -46,14 +69,31 @@ const Cadastro = () => {
           Criar conta de Parceiro
         </h2>
 
-
         <form className="login-form" onSubmit={handleCadastro}>
-          <label>Nome / Razão Social</label>
+          <label>Nome Fantasia</label>
           <input
             type="text"
-            placeholder="Nome completo ou Empresa"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
+            placeholder="Ex: Padaria do João"
+            value={nomeFantasia}
+            onChange={(e) => setNomeFantasia(e.target.value)}
+            required
+          />
+
+          <label>Razão Social</label>
+          <input
+            type="text"
+            placeholder="Ex: João da Silva Panificadora LTDA"
+            value={razaoSocial}
+            onChange={(e) => setRazaoSocial(e.target.value)}
+            required
+          />
+
+          <label>CNPJ</label>
+          <input
+            type="text"
+            placeholder="00.000.000/0000-00"
+            value={cnpj}
+            onChange={handleCnpjChange} // Usa a função de máscara
             required
           />
 
@@ -80,13 +120,11 @@ const Cadastro = () => {
         </form>
 
         <p style={{ textAlign: 'center', marginTop: '20px', fontSize: '14px' }}>
-          Já tem uma conta? <Link to="/" style={{ color: '#5A2D82', fontWeight: 'bold', textDecoration: 'none' }}>Faça login.</Link>
+          Já tem uma conta? <Link to="/" style={{ color: '#00B894', fontWeight: 'bold', textDecoration: 'none' }}>Faça login.</Link>
         </p>
       </main>
-
-      <img src={iconeFundo} alt="Ilustração de caixas" className="box-illustration" />
     </div>
   );
 };
 
-export default Cadastro; 
+export default Cadastro;
