@@ -1,0 +1,65 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-4);
+}
+
+header span {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-2xl);
+    color: var(--color-gray);
+}
+
+header button {
+    background: var(--color-bg-body);
+    border: none;
+    color: var(--color-primary);
+}
+
+.register-container {
+    display: flex;
+    height: 100vh;
+    padding: var(--spacing-4);
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.register-container h1 {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-2);
+}
+
+.error {
+    font-size: var(--font-size-sm);
+    color: var(--color-error);
+    display: block;
+}
+
+.forgot-password {
+    color: var(--color-primary);
+    margin-top: var(--spacing-1);
+}
+
+.terms-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+.checkbox {
+    cursor: pointer;
+    border-radius: var(--radius-full);
+}
+
+.terms-container .text {
+    font-size: var(--font-size-sm);
+}
+
+.terms-container .text a:hover {
+    color: var(--color-primary);
+}

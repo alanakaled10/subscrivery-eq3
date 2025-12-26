@@ -1,0 +1,124 @@
+# Subscrivery - Equipe Alana Caled, Felipe Trindade, Fernando Vinícius, Julia Cruz
+
+> Solução completa para consumo recorrente de produtos através de assinaturas personalizadas.
+
+![Status do Projeto](https://img.shields.io/badge/Status-Em_Desenvolvimento-yellow)
+![NodeJS](https://img.shields.io/badge/Back--End-Node.js%20%2F%20Express-green)
+![MySQL](https://img.shields.io/badge/Database-MySQL-orange)
+
+## 📖 Descrição do Projeto
+
+A **Subscrivery** é uma startup que une o modelo de **Subscription** (Assinatura) com **Delivery** (Entrega). O objetivo deste MVP é conectar consumidores a fornecedores locais (Pet Shops, Mercados, Farmácias), permitindo que o cliente receba produtos essenciais com a frequência que desejar, sem precisar refazer o pedido todo mês.
+
+O sistema permite:
+* Cadastro e Autenticação de Usuários.
+* Seleção de Planos (Básico, Intermediário, Premium).
+* Escolha de Categorias e Fornecedores.
+* Gerenciamento de Assinaturas e Endereços de Entrega.
+
+---
+
+## 🚀 Tecnologias Utilizadas
+
+O projeto foi desenvolvido utilizando as seguintes tecnologias:
+
+**Back-end:**
+* **Linguagem:** JavaScript / Node.js
+* **Framework:** Express.js (API RESTful)
+* **Banco de Dados:** MySQL
+* **Driver/ORM:** MySQL2
+
+**Front-end:**
+* **Linguagem:** JavaScript / React
+* **Estilização:** CSS Modules / Styled Components
+
+**Ferramentas:**
+* **Modelagem de Dados:** brModelo / HeidiSQL
+* **Versionamento:** Git & GitHub
+* **API Client:** Axios
+
+---
+
+## 📂 Modelagem do Banco de Dados
+
+A estrutura do banco de dados foi planejada para garantir escalabilidade e integridade das assinaturas.
+
+* **MER/DER:** Os diagramas completos estão disponíveis na pasta [`/docs`](./docs) deste repositório.
+* **Scripts SQL:** O script de criação das tabelas encontra-se na pasta [`/ModeloFisico`](./docs/ModeloFisico) dentro da pasta [`/docs`](./docs) deste repositório.
+
+---
+
+## 🔧 Instruções de Instalação
+
+Siga os passos abaixo para rodar o projeto localmente:
+
+### Pré-requisitos
+* Node.js (v18 ou superior)
+* NPM ou Yarn
+* Servidor MySQL instalado e rodando (XAMPP, HeidiSQL, MySQL Workbench ou Docker)
+
+### Passo a Passo
+
+1. **Clone o repositório**
+    ```bash
+    git clone [https://github.com/alanakaled10/subscrivery-eq3.git](https://github.com/alanakaled10/subscrivery-eq3.git)
+    cd subscrivery-eq3
+    ```
+
+2. **Instale as dependências**
+    Acesse a pasta do servidor (back-end) e instale os pacotes:
+    ```bash
+    cd backend
+    npm install
+    ```
+
+3. **Configure o Banco de Dados**
+    * Crie um banco de dados vazio no MySQL chamado `subscrivery_db`.
+    * Execute o script SQL disponível em `docs/ModeloFisico` (verifique o nome do arquivo .sql) para criar as tabelas.
+    * *(Opcional)* Execute o script de Seeds para popular dados iniciais.
+
+4. **Variáveis de Ambiente (.env)**
+    * Crie um arquivo `.env` na raiz do back-end baseando-se no `.env.example`.
+    * Preencha com suas credenciais (a porta padrão do MySQL é 3306):
+    ```ini
+    PORT=3000
+    DB_HOST=localhost
+    DB_PORT=3306
+    DB_USER=root
+    DB_PASS=sua_senha_mysql
+    DB_NAME=subscrivery_db
+    JWT_SECRET=uma_chave_secreta_para_token
+    ```
+
+5. **Instale o Front-end** (em outra aba do terminal)
+    ```bash
+    cd ../frontend
+    npm install
+    ```
+
+---
+
+## ⚡ Como Executar
+
+Para rodar a aplicação completa, utilize dois terminais:
+
+**Terminal 1 (Back-end - API):**
+```bash
+cd backend
+npm run dev
+# O servidor iniciará em http://localhost:3000
+```
+
+**Terminal 2 (Front-end - Web):**
+```bash
+cd frontend
+npm start
+# O front iniciará em http://localhost:3000 (ou porta 3001/5173)
+```
+
+Link da Aplicação (Deploy)
+Você pode acessar a versão online da aplicação através do link abaixo:
+
+Link em desenvolvimento...
+
+Desenvolvido pela Equipe Subscrivery EQ3
