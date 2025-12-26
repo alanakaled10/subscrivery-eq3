@@ -1,7 +1,4 @@
 import mysql from 'mysql2';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 const db = mysql.createPool({
     host: process.env.DB_HOST,
@@ -15,11 +12,12 @@ const db = mysql.createPool({
     }
 });
 
+// Mantivemos o teste de conexão simples para não quebrar o build
 db.getConnection((err, connection) => {
     if (err) {
-        console.error('Erro fatal na conexão do banco:', err.message);
+        console.log('Aviso: Erro ao tentar conectar (pode ser normal durante o build):', err.message);
     } else {
-        console.log('Banco de dados conectado com sucesso!');
+        console.log('Conexão com o banco realizada com sucesso!');
         connection.release();
     }
 });
