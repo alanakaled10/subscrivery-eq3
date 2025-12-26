@@ -12,14 +12,4 @@ const db = mysql.createPool({
     }
 });
 
-// Mantivemos o teste de conexão simples para não quebrar o build
-db.getConnection((err, connection) => {
-    if (err) {
-        console.log('Aviso: Erro ao tentar conectar (pode ser normal durante o build):', err.message);
-    } else {
-        console.log('Conexão com o banco realizada com sucesso!');
-        connection.release();
-    }
-});
-
 export default db.promise();
