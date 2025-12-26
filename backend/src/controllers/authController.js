@@ -27,7 +27,7 @@ export const login = async (req, res) => {
     const { email, senha } = req.body;
     try {
         const [rows] = await db.execute("SELECT * FROM usuario WHERE email = ?", [email]);
-        
+
         if (rows.length === 0) {
             return res.status(401).json({ erro: "E-mail ou senha incorretos." });
         }
@@ -43,17 +43,20 @@ export const login = async (req, res) => {
         const token = jwt.sign(
             { id: usuario.id_usuario, email: usuario.email },
             JWT_SECRET,
-            { expiresIn: '24h' } 
+            { expiresIn: '24h' }
         );
 
-    
+
         res.json({
             mensagem: "Login realizado com sucesso!",
-            token, 
+            token,
             usuario: {
                 id: usuario.id_usuario,
                 nome: usuario.nome_completo,
-                email: usuario.email
+                email: usuario.email,
+                cpf: usuario.cpf,
+                telefone: usuario.telefone,
+                token_recuperacao: usuario.token_recuperacao
             }
         });
     } catch (err) {
@@ -66,13 +69,13 @@ export const esqueciSenha = async (req, res) => {
     const { email } = req.body;
     try {
         const [rows] = await db.execute("SELECT id_usuario FROM usuario WHERE email = ?", [email]);
-        
+
         if (rows.length === 0) {
             return res.status(404).json({ erro: "E-mail não encontrado." });
         }
 
         const token = crypto.randomBytes(20).toString('hex');
-        const expiracao = new Date(Date.now() + 3600000); 
+        const expiracao = new Date(Date.now() + 3600000);
 
         await db.execute(
             "UPDATE usuario SET token_recuperacao = ?, data_expiracao_token = ? WHERE email = ?",
@@ -81,7 +84,7 @@ export const esqueciSenha = async (req, res) => {
 
         // Aqui você usaria o Nodemailer para enviar o e-mail
         // const link = `http://localhost:5173/redefinir-senha/${token}`;
-        
+
         res.json({ mensagem: "Link de recuperação gerado! " });
     } catch (err) {
         res.status(500).json({ erro: "Erro interno." });
