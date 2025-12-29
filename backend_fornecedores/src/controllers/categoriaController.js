@@ -2,13 +2,9 @@ import db from '../config/db.js';
 
 export const listarCategorias = async (req, res) => {
     try {
-
-        const [categorias] = await db.execute("SELECT id_categoria, nome, cor_fundo FROM categoria"); 
-        return res.status(200).json(categorias);
+        const [rows] = await db.execute("SELECT id_categoria, nome FROM categoria"); 
+        res.status(200).json(rows);
     } catch (error) {
-        return res.status(500).json({ 
-            mensagem: "Erro ao listar categorias", 
-            detalhes: error.message 
-        });
+        res.status(500).json({ erro: error.message });
     }
 };
