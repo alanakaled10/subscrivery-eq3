@@ -1,0 +1,357 @@
+.perfil-page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.dashboard-layout {
+  display: flex;
+  flex: 1;
+}
+
+
+/* Sidebar Branca atualizada */
+.sidebar-white {
+  width: 320px;
+  background-color: #ffffff;
+  border-right: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Centraliza horizontalmente todos os filhos */
+  padding: 60px 20px;
+}
+
+/* Container da foto e nomes */
+.sidebar-profile-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Garante que ícone, h2 e p fiquem alinhados no meio */
+  text-align: center;
+  width: 100%;
+}
+
+.sidebar-avatar-icon {
+  font-size: 110px;
+  /* Aumentado levemente para melhor estética central */
+  color: #5e2a9d;
+  margin-bottom: 20px;
+}
+
+.sidebar-profile-box h2 {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.sidebar-profile-box p {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Área de Conteúdo */
+.dashboard-main-content {
+  flex: 1;
+  padding: 50px 80px;
+}
+
+.overview-row {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #f8f8f8;
+}
+
+.overview-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.overview-item:hover {
+  transform: translateY(-3px);
+}
+
+.icon-circle-purple {
+  width: 65px;
+  height: 65px;
+  background-color: #5e2a9d;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.overview-item span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #444;
+}
+
+/* Grid de Gestão de Conta */
+.account-grid-section h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.management-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.manage-card {
+  background: #ffffff;
+  border: 1px solid #f2f2f2;
+  padding: 25px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.manage-card:hover {
+  box-shadow: 0 10px 30px rgba(94, 42, 157, 0.08);
+  border-color: #5e2a9d33;
+}
+
+.manage-card-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.manage-icon-purple {
+  color: #5e2a9d;
+  font-size: 1.8rem;
+  background-color: #f3effb;
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.manage-text h4 {
+  color: #333;
+  margin-bottom: 4px;
+  font-size: 1rem;
+}
+
+.manage-text span {
+  color: #aaa;
+  font-size: 0.8rem;
+}
+
+.arrow-next {
+  color: #ddd;
+  font-size: 1rem;
+}
+
+/* Responsividade Mobile */
+
+
+/* Badge de Status do Plano */
+.plan-tag {
+  margin-top: 10px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.plan-tag.free {
+  background: #eee;
+  color: #666;
+}
+
+.plan-tag.premium {
+  background: #f3effb;
+  color: #5e2a9d;
+  border: 1px solid #5e2a9d;
+}
+
+.btn-upgrade {
+  margin-top: 5px;
+  background-color: #ffc107;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #333;
+  transition: background 0.2s;
+}
+
+.btn-upgrade:hover {
+  background-color: #e0a800;
+}
+
+.btn-logout-sidebar {
+  margin-top: 30px;
+  background: none;
+  border: 1px solid #ff4d4d;
+  color: #ff4d4d;
+  padding: 8px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-logout-sidebar:hover {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.manage-icon-red {
+  color: #ff4d4d;
+  font-size: 1.8rem;
+  background-color: #fff0f0;
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Correção para o Menu Inferior não sobrepor o conteúdo */
+.perfil-page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding-bottom: 80px;
+}
+
+.btn-back-home {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: #5e2a9d;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  transition: opacity 0.2s;
+}
+
+.btn-back-home:hover {
+  opacity: 0.7;
+}
+
+.bottom-nav-mobile {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #eee;
+  z-index: 1000;
+}
+
+.bottom-nav-mobile button {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #999;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.bottom-nav-mobile button.active {
+  color: #5e2a9d;
+}
+
+.bottom-nav-mobile small {
+  font-size: 0.7rem;
+  margin-top: 4px;
+}
+
+@media (max-width: 968px) {
+
+  .btn-back-home.desktop-only {
+    display: none ;
+  }
+
+
+  .dashboard-layout {
+    flex-direction: column;
+  }
+
+  .sidebar-white {
+    width: 100%;
+    padding: 30px;
+    border-right: none;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .dashboard-main-content {
+    padding: 30px 20px;
+  }
+
+  .management-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-row {
+    justify-content: space-around;
+    gap: 10px;
+  }
+}
+
+
+@media (min-width: 969px) {
+  .btn-back-home.desktop-only {
+    display: flex;
+    align-self: flex-start;
+    background: none;
+    border: none;
+    color: #5e2a9d;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+  }
+
+  .perfil-page-container {
+    padding-bottom: 0;
+  }
+
+  .bottom-nav-mobile {
+    display: none;
+  }
+}

@@ -1,0 +1,112 @@
+.cadastro-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #ffffff;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.cadastro-card {
+  width: 100%;
+  max-width: 450px;
+}
+
+.cadastro-title {
+  color: #5e2a9d;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.cadastro-subtitle {
+  color: #666;
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+.cadastro-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.input-group-row {
+  display: flex;
+  gap: 15px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.input-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.input-group input {
+  padding: 12px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  outline: none;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.input-group input:focus {
+  border-color: #5e2a9d;
+  box-shadow: 0 0 0 3px rgba(94, 42, 157, 0.1);
+}
+
+.btn-proximo {
+  background-color: #5e2a9d;
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-proximo:hover {
+  background-color: #4a1d82;
+}
+
+.footer-text {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 0.95rem;
+  color: #718096;
+}
+
+.footer-text span {
+  color: #5e2a9d;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.footer-text span:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .input-group-row {
+    flex-direction: column;
+    gap: 18px;
+  }
+  
+  .cadastro-title {
+    font-size: 1.8rem;
+  }
+}
