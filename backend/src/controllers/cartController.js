@@ -114,7 +114,7 @@ exports.finalizarCompra = async (req, res) => {
 
     
         await connection.query(
-            `INSERT INTO status_pedido (status, fk_pedidos_id_pedidos) 
+            `INSERT INTO status_pedidos (status, fk_pedidos_id_pedidos) 
              VALUES ('Processando', ?)`,
             [idPedido]
         );
@@ -148,7 +148,7 @@ exports.getMeusPedidos = async (req, res) => {
         SELECT 
             p.id_pedidos, 
             p.data_compra, 
-            (SELECT status FROM status_pedido 
+            (SELECT status FROM status_pedidos 
              WHERE fk_pedidos_id_pedidos = p.id_pedidos 
              ORDER BY data_evento DESC LIMIT 1) as status_atual,
             SUM(ip.quantidade * ip.preco_unitario) as valor_total
