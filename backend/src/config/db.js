@@ -1,12 +1,18 @@
-import mysql from 'mysql2/promise';
+const mysql = require('mysql2');
 
-const db = await mysql.createConnection({
-    host: 'localhost',
-    user: 'root',      
-    password: '',      
-    database: 'subscrivery' 
+const db = mysql.createConnection({
+  host: 'localhost',
+  user: 'root', 
+  password: '', 
+  database: 'subscrivery' 
 });
 
-console.log("Banco de dados conectado com sucesso! 🐬");
+db.connect((err) => {
+  if (err) {
+    console.error('Erro de conexão com o Banco de Dados:', err);
+    return;
+  }
+  console.log('Conexão com o Banco de Dados estabelecida com sucesso!');
+});
 
-export default db;
+module.exports = db;

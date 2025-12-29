@@ -1,0 +1,171 @@
+/* Container Principal e Wrappers */
+.pedidos-content-wrapper {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.section-title {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    border-left: 5px solid #6f42c1; /* Roxo padrão do sistema */
+    padding-left: 15px;
+}
+
+/* Lista de Pedidos */
+.pedidos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.pedido-card {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+    border: 1px solid #eee;
+}
+
+.pedido-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.pedido-main-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.box-icon {
+    font-size: 2rem;
+    color: #6f42c1;
+    background: #f3e5f5;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+}
+
+.details strong {
+    font-size: 1.1rem;
+    color: #2d3436;
+}
+
+.details span {
+    font-size: 0.85rem;
+    color: #636e72;
+}
+
+/* Informações Financeiras e Status */
+.pedido-financial-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.valor {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #2d3436;
+}
+
+/* Badges de Status - Jurisprudência das Cores */
+.status-badge {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Estilização por Tipo de Decisão (Status) */
+.status-badge.processando { 
+    background-color: #fff3cd; 
+    color: #856404; 
+    border: 1px solid #ffeeba;
+}
+
+.status-badge.em-trânsito,
+.status-badge.em-transito { 
+    background-color: #cce5ff; 
+    color: #004085; 
+    border: 1px solid #b8daff;
+}
+
+.status-badge.entregue { 
+    background-color: #d4edda; 
+    color: #155724; 
+    border: 1px solid #c3e6cb;
+}
+
+.status-badge.cancelado { 
+    background-color: #f8d7da; 
+    color: #721c24; 
+    border: 1px solid #f5c6cb;
+}
+
+/* Estado Vazio (Empty State) */
+.empty-pedidos-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #b2bec3;
+}
+
+.empty-pedidos-state p {
+    margin: 15px 0;
+    font-size: 1.1rem;
+}
+
+.btn-comprar {
+    background-color: #6f42c1;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-comprar:hover {
+    background-color: #5a32a3;
+}
+
+/* Animação */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+    .pedido-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .pedido-financial-info {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #f1f1f1;
+        padding-top: 10px;
+    }
+}

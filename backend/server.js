@@ -1,27 +1,32 @@
-import 'dotenv/config';
-import express from 'express';
-import cors from 'cors';
-import authRoutes from './src/routes/authRoutes.js';
-import assinaturaRoutes from './src/routes/assinaturaRoutes.js';
-import categoriaRoutes from './src/routes/categoriaRoutes.js';
-import fornecedorRoutes from './src/routes/fornecedorRoutes.js';
-import planoRoutes from './src/routes/planoRoutes.js';
-import produtoRoutes from './src/routes/produtoRoutes.js'; 
-import cartaoRoutes from './src/routes/cartaoRoutes.js';
-import enderecoRoutes from './src/routes/enderecoRoutes.js';
+const express = require('express');
+const cors = require('cors');
+// O db garante a conexão inicial com o Erário de Dados
+const db = require('./src/config/db'); 
+const authRoutes = require('./src/routes/authRoutes');
+const productRoutes = require('./src/routes/productRoutes');
+const cartRoutes = require('./src/routes/cartRoutes');
 
 const app = express();
-app.use(express.json());
+
+// --- Middlewares ---
 app.use(cors());
+app.use(express.json());
 
-// Definição dos Endpoints
-app.use('/auth', authRoutes);
-app.use('/assinaturas', assinaturaRoutes);
-app.use('/categorias', categoriaRoutes);
-app.use('/fornecedores', fornecedorRoutes);
-app.use('/plans', planoRoutes);
-app.use('/produtos', produtoRoutes); 
-app.use('/cartoes', cartaoRoutes);
-app.use('/enderecos', enderecoRoutes);
+// --- Definição de Competências (Rotas) ---
 
-app.listen(3000, () => console.log("Servidor rodando! 🚀"));
+// JURIDICAMENTE: Centralizamos login, perfil e carteira no authRoutes
+app.use('/api/auth', authRoutes); 
+app.use('/api/produtos', productRoutes);
+app.use('/api/carrinho', cartRoutes);
+
+// --- Tratamento de Erros Globais (Segurança Jurídica) ---
+app.use((err, req, res, next) => {
+    console.error("Falha na instrução do servidor:", err.stack);
+    res.status(500).json({ error: "Erro interno no processamento da demanda." });
+});
+
+const PORT = 3001;
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+  console.log("Conexão com o Banco de Dados estabelecida com sucesso!");
+});
